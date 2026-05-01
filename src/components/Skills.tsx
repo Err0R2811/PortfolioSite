@@ -30,7 +30,7 @@ const certs = [
 ];
 
 export const Skills = () => (
-  <section id="skills" className="px-6 md:px-10 max-w-6xl mx-auto py-32 md:py-40">
+  <section id="skills" aria-labelledby="skills-heading" className="px-6 md:px-10 max-w-6xl mx-auto py-32 md:py-40">
     <SectionHeader
       index="03 — Toolkit"
       title="Tools I reach for."

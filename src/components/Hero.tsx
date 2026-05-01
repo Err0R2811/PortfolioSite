@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
+import { ResumeButton } from "./ResumeButton";
 
 const ease = [0.22, 1, 0.36, 1];
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 max-w-6xl mx-auto pt-32 pb-20">
+    <section
+      id="hero"
+      aria-labelledby="hero-heading"
+      className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 max-w-6xl mx-auto pt-32 pb-20"
+    >
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -17,6 +22,7 @@ export const Hero = () => {
       </motion.p>
 
       <motion.h1
+        id="hero-heading"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease, delay: 0.2 }}
@@ -41,22 +47,23 @@ export const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease, delay: 0.8 }}
-        className="mt-14 flex items-center gap-6"
+        className="mt-14 flex flex-wrap items-center gap-6"
       >
         <a
           href="#work"
-          className="group inline-flex items-center gap-2 text-sm font-mono text-foreground hover:text-primary transition-colors"
+          className="group inline-flex items-center gap-2 text-sm font-mono text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background rounded"
         >
           <span className="border-b border-foreground/40 group-hover:border-primary pb-1 transition-colors">
             Selected work
           </span>
-          <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
+          <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" aria-hidden />
         </a>
+        <ResumeButton />
         <a
           href="https://github.com/Err0R2811"
           target="_blank"
           rel="noreferrer"
-          className="text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
+          className="text-sm font-mono text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background rounded"
         >
           github ↗
         </a>
