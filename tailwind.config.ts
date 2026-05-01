@@ -13,7 +13,20 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+      backgroundImage: {
+        'gradient-glow': 'var(--gradient-glow)',
+        'gradient-text': 'var(--gradient-text)',
+      },
+      boxShadow: {
+        'glow': 'var(--shadow-glow)',
+        'soft': 'var(--shadow-soft)',
+      },
       colors: {
+        'primary-glow': 'hsl(var(--primary-glow))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
