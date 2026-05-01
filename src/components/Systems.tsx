@@ -25,7 +25,7 @@ const principles = [
 ];
 
 export const Systems = () => (
-  <section id="systems" className="px-6 md:px-10 max-w-6xl mx-auto py-32 md:py-40">
+  <section id="systems" aria-labelledby="systems-heading" className="px-6 md:px-10 max-w-6xl mx-auto py-32 md:py-40">
     <SectionHeader
       index="02 — Systems thinking"
       title="How I make decisions."
