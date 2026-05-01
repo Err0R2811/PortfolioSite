@@ -1,0 +1,75 @@
+import { motion } from "framer-motion";
+import { ArrowDownRight } from "lucide-react";
+
+const ease = [0.22, 1, 0.36, 1];
+
+export const Hero = () => {
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 max-w-6xl mx-auto pt-32 pb-20">
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.1 }}
+        className="font-mono text-xs text-primary mb-8 tracking-widest uppercase"
+      >
+        <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 animate-pulse" />
+        Available for AI engineering roles
+      </motion.p>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease, delay: 0.2 }}
+        className="text-5xl md:text-7xl lg:text-[5.5rem] font-semibold leading-[1.02] tracking-tight text-gradient glow-text"
+      >
+        Building calm software<br />
+        for noisy problems.
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease, delay: 0.5 }}
+        className="mt-10 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
+      >
+        Amit Virpara — software & AI developer focused on data systems,
+        full-stack platforms, and the boring infrastructure that makes
+        intelligent products feel inevitable.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease, delay: 0.8 }}
+        className="mt-14 flex items-center gap-6"
+      >
+        <a
+          href="#work"
+          className="group inline-flex items-center gap-2 text-sm font-mono text-foreground hover:text-primary transition-colors"
+        >
+          <span className="border-b border-foreground/40 group-hover:border-primary pb-1 transition-colors">
+            Selected work
+          </span>
+          <ArrowDownRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
+        </a>
+        <a
+          href="https://github.com/Err0R2811"
+          target="_blank"
+          rel="noreferrer"
+          className="text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
+        >
+          github ↗
+        </a>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-8 left-6 md:left-10 font-mono text-[10px] text-muted-foreground/60 tracking-widest"
+      >
+        VADODARA · IN — 22.31°N 73.18°E
+      </motion.div>
+    </section>
+  );
+};
