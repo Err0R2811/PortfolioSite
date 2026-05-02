@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
+import { Globe } from "./Globe";
 
 const links = [
   { label: "Email", value: "amitvirpara@outlook.com", href: "mailto:amitvirpara@outlook.com" },
@@ -40,6 +41,25 @@ export const Contact = () => (
         Start a conversation
         <span aria-hidden>→</span>
       </motion.a>
+    </Reveal>
+
+    <Reveal delay={0.3}>
+      <div className="mt-24 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div>
+          <div className="font-mono text-xs text-primary mb-4 tracking-widest uppercase">
+            <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 animate-pulse" />
+            Based in India
+          </div>
+          <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+            Working from Vadodara,<br />shipping worldwide.
+          </h3>
+          <p className="text-muted-foreground text-sm md:text-base max-w-md leading-relaxed">
+            IST (UTC+5:30). Comfortable across overlapping windows with EU and
+            US timezones. Async-first, deep-work biased.
+          </p>
+        </div>
+        <Globe />
+      </div>
     </Reveal>
 
     <Reveal delay={0.35}>
