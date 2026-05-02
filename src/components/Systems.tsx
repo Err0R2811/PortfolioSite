@@ -33,7 +33,7 @@ export const Systems = () => (
       title="How I make decisions."
       subtitle="The principles underneath the projects. Stable enough to outlast a stack."
     />
-    <div className="grid md:grid-cols-2 gap-px bg-border border border-border">
+    <div className="grid md:grid-cols-2 gap-px bg-border border border-border rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl shadow-black/40">
       {principles.map((p, i) => (
         <Reveal key={p.n} delay={i * 0.08} className="bg-background">
           <motion.div 
