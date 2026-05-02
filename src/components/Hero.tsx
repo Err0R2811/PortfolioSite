@@ -32,16 +32,33 @@ export const Hero = () => {
         for noisy problems.
       </motion.h1>
 
-      <motion.p
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease, delay: 0.5 }}
-        className="mt-10 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
+        className="mt-12 flex flex-col md:flex-row items-center gap-10 md:gap-16"
       >
-        Amit Virpara — software & AI developer focused on data systems,
-        full-stack platforms, and the boring infrastructure that makes
-        intelligent products feel inevitable.
-      </motion.p>
+        <div className="relative shrink-0 group">
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease, delay: 0.6 }}
+            className="absolute -inset-4 border border-primary/20 pointer-events-none group-hover:border-primary/40 transition-colors duration-500"
+          />
+          <img 
+            src="/images/profile.jpeg" 
+            alt="Portrait of Amit" 
+            className="w-48 h-48 md:w-64 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-[1.02] border border-border shadow-soft"
+          />
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40 group-hover:border-primary transition-colors" />
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40 group-hover:border-primary transition-colors" />
+        </div>
+        <p className="text-base md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+          <span className="text-foreground font-semibold">Amit Virpara</span> — software & AI developer focused on data systems,
+          full-stack platforms, and the boring infrastructure that makes
+          intelligent products feel inevitable.
+        </p>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0 }}

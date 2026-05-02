@@ -225,6 +225,7 @@ export const projects: Project[] = [
     ],
     architecture: "Streamlit app · Luhn checksum · card pattern matching · visual result display",
     github: "https://github.com/Err0R2811/Luhns-Algo",
+    image: "/projects/luhns.png",
     domains: ["Tools"],
     stackTags: ["Python"],
     metrics: [

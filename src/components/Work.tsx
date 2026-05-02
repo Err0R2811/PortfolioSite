@@ -129,12 +129,25 @@ export const Work = () => {
                   className="absolute inset-0 bg-gradient-to-r from-primary/[0.04] to-transparent pointer-events-none"
                 />
 
-                <div className="md:col-span-2 font-mono text-xs text-muted-foreground">
-                  {p.year}
+                <div className="md:col-span-2 font-mono text-xs text-muted-foreground flex flex-col justify-between">
+                  <span>{p.year}</span>
+                  {p.image && (
+                    <motion.div 
+                      variants={{ hover: { scale: 1.05, opacity: 1 } }}
+                      initial={{ opacity: 0.6, scale: 1 }}
+                      className="hidden md:block w-full aspect-square border border-border overflow-hidden bg-muted/20"
+                    >
+                      <img 
+                        src={p.image} 
+                        alt="" 
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                      />
+                    </motion.div>
+                  )}
                 </div>
 
                 <div className="md:col-span-7 relative">
-                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight flex items-center gap-3">
+                  <h3 className="text-2xl md:text-4xl font-semibold tracking-tight flex items-center gap-3">
                     {p.title}
                     <motion.span
                       variants={{ hover: { x: 4, y: -4 } }}
@@ -142,18 +155,17 @@ export const Work = () => {
                       className="inline-block text-primary/70"
                       aria-hidden
                     >
-                      <ArrowUpRight className="w-5 h-5" />
+                      <ArrowUpRight className="w-6 h-6" />
                     </motion.span>
                   </h3>
-                  <p className="font-mono text-xs text-primary/80 mt-1.5">{p.role}</p>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">
+                  <p className="font-mono text-xs text-primary/80 mt-2 uppercase tracking-widest">{p.role}</p>
+                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xl">
                     <span className="text-foreground/80">{p.solution}</span>
                   </p>
 
-                  {/* Compact metrics row */}
-                  <dl className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                  <dl className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
                     {p.metrics.map((m) => (
-                      <div key={m.label} className="flex items-baseline gap-1.5">
+                      <div key={m.label} className="flex items-baseline gap-2">
                         <dt className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60">
                           {m.label}
                         </dt>
@@ -163,11 +175,11 @@ export const Work = () => {
                   </dl>
                 </div>
 
-                <div className="md:col-span-3 md:pl-6 md:border-l border-border flex md:flex-col gap-2 items-start">
+                <div className="md:col-span-3 md:pl-6 md:border-l border-border flex md:flex-col gap-2 items-start justify-center">
                   {p.domains.map((d) => (
                     <span
                       key={d}
-                      className="font-mono text-[10px] px-2 py-0.5 rounded border border-border text-muted-foreground"
+                      className="font-mono text-[10px] px-2 py-0.5 border border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-primary transition-colors"
                     >
                       {d}
                     </span>
