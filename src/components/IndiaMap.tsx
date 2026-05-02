@@ -33,23 +33,11 @@ export const IndiaMap = () => {
       />
       <svg
         viewBox="0 0 612 696"
+        preserveAspectRatio="xMidYMid meet"
         className="w-full h-auto"
         role="img"
         aria-label="Map of India with Gujarat state highlighted, marking Vadodara"
       >
-        <defs>
-          <radialGradient id="gj-fill" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.25" />
-          </radialGradient>
-          <filter id="gj-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="b" />
-            <feMerge>
-              <feMergeNode in="b" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
 
         <g
           fill="hsl(var(--muted) / 0.5)"
@@ -65,17 +53,16 @@ export const IndiaMap = () => {
         </g>
 
         {mounted && (
-          <motion.path
+          <path
             d={states.gj.d}
-            fill="url(#gj-fill)"
+            fill="hsl(var(--primary) / 0.4)"
             stroke="hsl(var(--primary))"
-            strokeWidth={1.2}
+            strokeWidth={1.5}
             strokeLinejoin="round"
-            filter="url(#gj-glow)"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+            style={{ 
+              animation: "fade-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+              opacity: 0 
+            }}
           />
         )}
 
