@@ -23,10 +23,10 @@ export const Nav = () => {
       >
         <a
           href="#"
-          className="font-mono text-sm tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+          className="font-semibold text-sm tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
           aria-label="Amit Virpara — home"
         >
-          <span className="text-primary">/</span>amit.virpara
+          Amit Virpara
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm text-muted-foreground" role="list">
           {links.map((l, i) => (
