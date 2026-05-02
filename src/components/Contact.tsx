@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
-import { Globe } from "./Globe";
+import { IndiaMap } from "./IndiaMap";
 
 const links = [
   { label: "Email", value: "amitvirpara@outlook.com", href: "mailto:amitvirpara@outlook.com" },
   { label: "GitHub", value: "Err0R2811", href: "https://github.com/Err0R2811" },
-  { label: "LinkedIn", value: "amit-virpara", href: "https://linkedin.com/in/amit-virpara" },
+  { label: "LinkedIn", value: "amit-virpara", href: "https://www.linkedin.com/in/amit-virpara-a803b62b2?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
   { label: "Phone", value: "+91 63539 30421", href: "tel:+916353930421" },
 ];
 
@@ -58,7 +58,7 @@ export const Contact = () => (
             US timezones. Async-first, deep-work biased.
           </p>
         </div>
-        <Globe />
+        <IndiaMap />
       </div>
     </Reveal>
 
