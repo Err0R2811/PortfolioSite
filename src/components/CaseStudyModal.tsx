@@ -76,7 +76,7 @@ export const CaseStudyModal = ({ project, onClose }: Props) => {
     setTimeout(() => {
       setIsAnimatingOut(false);
       onClose();
-    }, 900);
+    }, 850);
   };
 
   return (
@@ -101,7 +101,7 @@ export const CaseStudyModal = ({ project, onClose }: Props) => {
             onClick={(e) => e.stopPropagation()}
             className="relative w-full md:max-w-4xl max-h-[92vh] overflow-y-auto bg-card border border-border shadow-soft"
           >
-            <PixelDissolve isExiting={isAnimatingOut} duration={0.9} />
+            <PixelDissolve isExiting={isAnimatingOut} duration={0.8} />
 
             <div className="sticky top-0 z-20 flex items-center justify-between px-6 md:px-10 py-5 bg-card/95 backdrop-blur border-b border-border">
               <span className="font-mono text-xs text-primary">{project.year} · case study</span>
@@ -122,7 +122,7 @@ export const CaseStudyModal = ({ project, onClose }: Props) => {
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-auto max-h-[400px] object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                  className={`w-full h-auto max-h-[400px] object-cover object-top transition-all duration-1000 ${isAnimatingOut ? "grayscale" : "grayscale-0"}`}
                 />
               </div>
             )}

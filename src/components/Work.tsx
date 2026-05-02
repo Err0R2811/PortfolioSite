@@ -140,7 +140,7 @@ export const Work = () => {
                       <img 
                         src={p.image} 
                         alt="" 
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        className={`w-full h-full object-cover transition-all duration-700 ${active?.id === p.id ? "grayscale-0 scale-[1.02]" : "grayscale group-hover:grayscale-0"}`} 
                       />
                     </motion.div>
                   )}
