@@ -8,52 +8,7 @@ interface Props {
   onClose: () => void;
 }
 
-const PixelDissolve = ({ isExiting, duration = 0.9 }: { isExiting: boolean; duration?: number }) => {
-  const rows = 12;
-  const cols = 16;
-  const total = rows * cols;
-
-  const blocks = useMemo(() => {
-    const arr = [];
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        // Random-ish delay but with a slight directional bias (top-left to bottom-right)
-        const delay = ((r / rows) + (c / cols)) * 0.3 + Math.random() * 0.4;
-        arr.push({ r, c, delay });
-      }
-    }
-    return arr;
-  }, []);
-
-  return (
-    <div className="absolute inset-0 z-[110] pointer-events-none overflow-hidden">
-      <div className="absolute inset-0 z-[115] pointer-events-none overflow-hidden opacity-[0.03]">
-        <motion.div
-          animate={{ y: ["-100%", "100%"] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          className="w-full h-20 bg-gradient-to-b from-transparent via-primary to-transparent"
-        />
-      </div>
-      <div className="absolute inset-0 z-[110] pointer-events-none grid grid-lines opacity-[0.03]" />
-      <div className="absolute inset-0 grid" 
-           style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}>
-        {blocks.map((b, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: isExiting ? 0 : 1 }}
-          animate={{ opacity: isExiting ? 1 : 0 }}
-          transition={{ 
-            duration: 0.2, 
-            delay: b.delay * (duration / 0.9), // Scale delay to match duration
-            ease: "easeInOut" 
-          }}
-          className="bg-background border-[0.5px] border-primary/5"
-        />
-      ))}
-      </div>
-    </div>
-  );
-};
+import { PixelDissolve } from "./PixelDissolve";
 
 export const CaseStudyModal = ({ project, onClose }: Props) => {
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
