@@ -26,9 +26,18 @@ const PixelDissolve = ({ isExiting, duration = 0.9 }: { isExiting: boolean; dura
   }, []);
 
   return (
-    <div className="absolute inset-0 z-[110] pointer-events-none grid" 
-         style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}>
-      {blocks.map((b, i) => (
+    <div className="absolute inset-0 z-[110] pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 z-[115] pointer-events-none overflow-hidden opacity-[0.03]">
+        <motion.div
+          animate={{ y: ["-100%", "100%"] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          className="w-full h-20 bg-gradient-to-b from-transparent via-primary to-transparent"
+        />
+      </div>
+      <div className="absolute inset-0 z-[110] pointer-events-none grid grid-lines opacity-[0.03]" />
+      <div className="absolute inset-0 grid" 
+           style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}>
+        {blocks.map((b, i) => (
         <motion.div
           key={i}
           initial={{ opacity: isExiting ? 0 : 1 }}
@@ -41,6 +50,7 @@ const PixelDissolve = ({ isExiting, duration = 0.9 }: { isExiting: boolean; dura
           className="bg-background border-[0.5px] border-primary/5"
         />
       ))}
+      </div>
     </div>
   );
 };
