@@ -21,7 +21,7 @@ const FilterChip = ({
     onClick={onClick}
     aria-pressed={active}
     aria-label={ariaLabel}
-    className={`font-mono text-[11px] px-3 py-1.5 border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+    className={`font-mono text-[11px] px-3 py-1.5 border transition-all rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
       active
         ? "border-primary text-primary bg-primary/10"
         : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40"
@@ -135,7 +135,7 @@ export const Work = () => {
                     <motion.div 
                       variants={{ hover: { scale: 1.05, opacity: 1 } }}
                       initial={{ opacity: 0.6, scale: 1 }}
-                      className="hidden md:block w-full aspect-square border border-border overflow-hidden bg-muted/20"
+                      className="hidden md:block w-full aspect-square border border-border overflow-hidden bg-muted/20 rounded"
                     >
                       <img 
                         src={p.image} 
@@ -179,7 +179,7 @@ export const Work = () => {
                   {p.domains.map((d) => (
                     <span
                       key={d}
-                      className="font-mono text-[10px] px-2 py-0.5 border border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-primary transition-colors"
+                      className="font-mono text-[10px] px-2 py-0.5 border border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-primary transition-colors rounded"
                     >
                       {d}
                     </span>

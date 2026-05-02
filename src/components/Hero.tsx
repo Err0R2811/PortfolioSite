@@ -43,13 +43,14 @@ export const Hero = () => {
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease, delay: 0.6 }}
-            className="absolute -inset-4 border border-primary/20 pointer-events-none group-hover:border-primary/40 transition-colors duration-500"
+            className="absolute -inset-4 border border-primary/20 pointer-events-none group-hover:border-primary/40 transition-colors duration-500 rounded-none"
           />
           <img 
             src="/images/profile.jpeg" 
             alt="Portrait of Amit" 
-            className="w-48 h-48 md:w-64 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-[1.02] border border-border shadow-soft"
+            className="w-48 h-48 md:w-64 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-[1.02] border border-border shadow-soft rounded-none"
           />
+
           <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40 group-hover:border-primary transition-colors" />
           <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40 group-hover:border-primary transition-colors" />
         </div>

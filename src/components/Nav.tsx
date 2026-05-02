@@ -24,7 +24,7 @@ export const Nav = () => {
       >
         <a
           href="#"
-          className="font-semibold text-sm tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary flex items-center gap-2 text-foreground"
+          className="font-semibold text-sm tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary flex items-center gap-2 text-foreground rounded"
           aria-label="Amit Virpara — home"
         >
           <AVMonogram className="w-7 h-7 text-primary" />
@@ -35,7 +35,7 @@ export const Nav = () => {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="hover:text-foreground transition-colors duration-300 font-mono focus-visible:outline-none focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                className="hover:text-foreground transition-colors duration-300 font-mono focus-visible:outline-none focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background rounded"
               >
                 <span className="text-primary/60 mr-1" aria-hidden>
                   0{i + 1}.

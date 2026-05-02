@@ -36,7 +36,7 @@ export const Contact = () => (
         href="mailto:amitvirpara@outlook.com"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="mt-12 inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-mono text-sm shadow-glow hover:shadow-[0_0_80px_hsl(var(--primary)/0.5)] transition-shadow"
+        className="mt-12 inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-mono text-sm shadow-glow hover:shadow-[0_0_80px_hsl(var(--primary)/0.5)] transition-shadow rounded"
       >
         Start a conversation
         <span aria-hidden>→</span>
@@ -63,7 +63,7 @@ export const Contact = () => (
     </Reveal>
 
     <Reveal delay={0.35}>
-      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
+      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border rounded overflow-hidden">
         {links.map((l) => (
           <a
             key={l.label}
