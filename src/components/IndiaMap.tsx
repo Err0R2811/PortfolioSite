@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import indiaMap from "@/data/india-map.json";
 import { usePrefs } from "@/context/PrefsContext";
@@ -9,7 +10,16 @@ const VADODARA = { x: 86, y: 362 };
 
 export const IndiaMap = () => {
   const { reducedMotion } = usePrefs();
-  const animate = !reducedMotion;
+  const [mounted, setMounted] = useState(false);
+  const animate = !reducedMotion && mounted;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!states || !states.gj) {
+    return <div className="w-full aspect-[612/696] bg-muted/10 animate-pulse" />;
+  }
 
   return (
     <div className="relative w-full max-w-md mx-auto">
@@ -54,28 +64,20 @@ export const IndiaMap = () => {
             ))}
         </g>
 
-        <motion.path
-          d={states.gj.d}
-          fill="url(#gj-fill)"
-          stroke="hsl(var(--primary))"
-          strokeWidth={1.2}
-          strokeLinejoin="round"
-          filter="url(#gj-glow)"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ opacity: 0 }}
-          className="india-map-gj"
-        />
-        <style>{`
-          .india-map-gj {
-            animation: gj-fadein 0.8s ease-out 0.5s forwards;
-          }
-          @keyframes gj-fadein {
-            to { opacity: 1; }
-          }
-        `}</style>
+        {mounted && (
+          <motion.path
+            d={states.gj.d}
+            fill="url(#gj-fill)"
+            stroke="hsl(var(--primary))"
+            strokeWidth={1.2}
+            strokeLinejoin="round"
+            filter="url(#gj-glow)"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+          />
+        )}
 
         <g transform={`translate(${VADODARA.x} ${VADODARA.y})`}>
           {animate && (
