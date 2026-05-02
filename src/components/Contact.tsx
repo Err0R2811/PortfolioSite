@@ -58,7 +58,7 @@ export const Contact = () => (
             US timezones. Async-first, deep-work biased.
           </p>
         </div>
-        <Globe />
+        <IndiaMap />
       </div>
     </Reveal>
 
