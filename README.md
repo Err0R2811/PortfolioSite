@@ -23,24 +23,6 @@ The underlying infrastructure leans heavily on "boring", reliable technology sca
 * **Components:** [Radix UI](https://www.radix-ui.com/) (Headless base)
 * **Icons:** [Lucide React](https://lucide.dev/)
 
-## Getting Started
-
-To run this project locally:
-
-1. **Clone the repository**
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
-
 ## Project Structure
 
 * `/src/components/` - Reusable UI components (Modals, Nav, Grid layouts)
