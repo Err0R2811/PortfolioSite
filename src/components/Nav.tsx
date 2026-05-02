@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ResumeButton } from "./ResumeButton";
+import { AVMonogram } from "./AVMonogram";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -14,7 +15,7 @@ export const Nav = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/40 border-b border-border/50"
+      className="fixed top-0 inset-x-0 z-50 glass-panel border-x-0 border-t-0"
       role="banner"
     >
       <nav
@@ -23,9 +24,10 @@ export const Nav = () => {
       >
         <a
           href="#"
-          className="font-semibold text-sm tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+          className="font-semibold text-sm tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded flex items-center gap-2 text-foreground"
           aria-label="Amit Virpara — home"
         >
+          <AVMonogram className="w-7 h-7 text-primary" />
           Amit Virpara
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm text-muted-foreground" role="list">

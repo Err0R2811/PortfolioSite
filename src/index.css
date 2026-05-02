@@ -1,20 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
 /* Premium minimal dark portfolio. All colors HSL. */
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 96%;
+    --background: 240 10% 2%;
+    --foreground: 0 0% 98%;
 
-    --card: 240 10% 5%;
-    --card-foreground: 0 0% 96%;
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 5%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 252 83% 67%;
     --primary-foreground: 0 0% 100%;
@@ -39,11 +39,15 @@
     --radius: 0.5rem;
 
     /* Design tokens */
-    --gradient-glow: radial-gradient(ellipse at top, hsl(252 83% 67% / 0.15), transparent 60%);
-    --gradient-text: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 70%));
-    --shadow-glow: 0 0 60px hsl(252 83% 67% / 0.25);
-    --shadow-soft: 0 1px 0 hsl(0 0% 100% / 0.04) inset, 0 20px 40px -20px hsl(0 0% 0% / 0.5);
+    --gradient-glow: radial-gradient(ellipse at top, hsl(252 83% 67% / 0.12), transparent 65%);
+    --gradient-text: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 60%));
+    --shadow-glow: 0 0 60px hsl(252 83% 67% / 0.20);
+    --shadow-soft: 0 1px 0 hsl(0 0% 100% / 0.03) inset, 0 20px 40px -20px hsl(0 0% 0% / 0.6);
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    
+    /* Glass tokens */
+    --glass-bg: 240 10% 4%;
+    --glass-border: 240 6% 12%;
 
     --sidebar-background: 240 10% 4%;
     --sidebar-foreground: 0 0% 96%;
@@ -79,9 +83,16 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
   }
   .glow-text {
-    text-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+    text-shadow: 0 0 40px hsl(var(--primary) / 0.35);
+  }
+  .glass-panel {
+    background: hsl(var(--glass-bg) / 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border) / 0.5);
   }
   .hairline { border-color: hsl(var(--border)); }
   .grid-lines {

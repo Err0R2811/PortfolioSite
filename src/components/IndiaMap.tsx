@@ -43,17 +43,17 @@ export const IndiaMap = () => {
           </filter>
         </defs>
 
-        {/* Other states — hairline outline only */}
+        {/* Other states — better visibility */}
         <g
-          fill="hsl(var(--muted) / 0.35)"
-          stroke="hsl(var(--border))"
-          strokeWidth={0.6}
+          fill="hsl(var(--muted) / 0.5)"
+          stroke="hsl(var(--foreground) / 0.18)"
+          strokeWidth={1}
           strokeLinejoin="round"
         >
           {Object.entries(states)
             .filter(([id]) => id !== "gj")
             .map(([id, s]) => (
-              <path key={id} d={s.d} />
+              <path key={id} d={s.d} className="transition-colors hover:fill-muted-foreground/30 duration-300" />
             ))}
         </g>
 

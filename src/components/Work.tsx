@@ -55,7 +55,7 @@ export const Work = () => {
       <div id="work-heading">
         <SectionHeader
           index="01 — Selected work"
-          title="Six systems worth talking about."
+          title="Systems worth talking about."
           subtitle="Each project starts with a problem, not a stack. Click any case study to read the full breakdown."
         />
       </div>
@@ -121,12 +121,12 @@ export const Work = () => {
                 whileHover="hover"
                 onClick={() => setActive(p)}
                 aria-label={`Open ${p.title} case study`}
-                className="w-full text-left grid md:grid-cols-12 gap-6 py-8 md:py-10 border-b border-border relative cursor-pointer group focus-visible:outline-none focus-visible:bg-muted/30"
+                className="w-full text-left grid md:grid-cols-12 gap-6 py-8 md:py-10 px-4 md:px-6 -mx-4 md:-mx-6 rounded-2xl border border-transparent hover:border-border/50 hover:bg-muted/10 transition-colors relative cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-8 focus-visible:ring-offset-background"
               >
                 <motion.div
                   variants={{ hover: { opacity: 1 } }}
                   initial={{ opacity: 0 }}
-                  className="absolute inset-0 bg-gradient-to-r from-primary/[0.04] to-transparent pointer-events-none"
+                  className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/[0.04] to-transparent pointer-events-none"
                 />
 
                 <div className="md:col-span-2 font-mono text-xs text-muted-foreground">

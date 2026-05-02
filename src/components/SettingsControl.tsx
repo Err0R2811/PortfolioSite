@@ -64,7 +64,7 @@ export const SettingsControl = () => {
             transition={{ duration: 0.2 }}
             role="dialog"
             aria-label="Display preferences"
-            className="absolute bottom-14 right-0 w-72 bg-card border border-border rounded-xl shadow-soft p-5"
+            className="absolute bottom-14 right-0 w-72 glass-panel rounded-xl shadow-soft p-5"
           >
             <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70 mb-4">
               Comfort settings

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <g fill="none" stroke="#c4b5fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- The A -->
+    <path d="M 50 25 L 25 95 M 50 25 L 70 75 M 35 75 L 65 75" />
+    
+    <!-- The V -->
+    <path d="M 45 45 L 75 100 L 95 45" />
+    
+    <!-- Feather detailing on the left of A -->
+    <path d="M 38 58 L 24 51 M 31 77 L 18 70 M 43 40 L 30 33" stroke-width="3" stroke="#a78bfa" />
+    
+    <!-- Feather detailing on the right of V -->
+    <path d="M 85 73 L 100 66 M 92 53 L 106 46 M 78 88 L 92 81" stroke-width="3" stroke="#a78bfa" />
+  </g>
+</svg>
