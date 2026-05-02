@@ -62,7 +62,7 @@ export const Work = () => {
 
       {/* Filters */}
       <Reveal>
-        <div className="mb-12 space-y-4" role="group" aria-label="Project filters">
+      <div className="mb-12 space-y-4 p-6 border border-border rounded-xl bg-muted/10" role="group" aria-label="Project filters">
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70 mr-2">
               Domain
@@ -169,7 +169,7 @@ export const Work = () => {
                         <dt className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60">
                           {m.label}
                         </dt>
-                        <dd className="font-mono text-[11px] text-foreground/90">{m.value}</dd>
+                        <dd className="font-mono text-[11px] text-foreground/90 px-2 py-0.5 border border-border rounded-sm">{m.value}</dd>
                       </div>
                     ))}
                   </dl>

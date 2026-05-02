@@ -64,7 +64,12 @@ export const LoadingScreen = () => {
             
             <div 
               ref={counterRef}
-              className="text-7xl md:text-9xl font-semibold tracking-tighter text-gradient glow-text tabular-nums"
+              className="text-7xl md:text-9xl font-bold tracking-tighter tabular-nums"
+              style={{ 
+                color: "black",
+                WebkitTextStroke: "1.5px hsl(var(--primary))",
+                textShadow: "0 0 30px hsl(var(--primary) / 0.2)"
+              }}
             >
               {counter}%
             </div>
