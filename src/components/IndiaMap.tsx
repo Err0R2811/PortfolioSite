@@ -5,8 +5,6 @@ import { usePrefs } from "@/context/PrefsContext";
 type StateGeo = { name: string; d: string };
 const states = indiaMap as Record<string, StateGeo>;
 
-// Approximate position of Vadodara in the SVG viewBox (0 0 612 696),
-// derived from the Gujarat path bounding box.
 const VADODARA = { x: 86, y: 362 };
 
 export const IndiaMap = () => {
@@ -43,7 +41,6 @@ export const IndiaMap = () => {
           </filter>
         </defs>
 
-        {/* Other states — better visibility */}
         <g
           fill="hsl(var(--muted) / 0.5)"
           stroke="hsl(var(--foreground) / 0.18)"
@@ -57,7 +54,6 @@ export const IndiaMap = () => {
             ))}
         </g>
 
-        {/* Gujarat — highlighted */}
         <motion.path
           d={states.gj.d}
           fill="url(#gj-fill)"
@@ -65,13 +61,22 @@ export const IndiaMap = () => {
           strokeWidth={1.2}
           strokeLinejoin="round"
           filter="url(#gj-glow)"
-          initial={animate ? { opacity: 0 } : false}
-          whileInView={animate ? { opacity: 1 } : undefined}
-          viewport={{ once: true, margin: "-80px" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          style={{ opacity: 0 }}
+          className="india-map-gj"
         />
+        <style>{`
+          .india-map-gj {
+            animation: gj-fadein 0.8s ease-out 0.5s forwards;
+          }
+          @keyframes gj-fadein {
+            to { opacity: 1; }
+          }
+        `}</style>
 
-        {/* Vadodara marker */}
         <g transform={`translate(${VADODARA.x} ${VADODARA.y})`}>
           {animate && (
             <motion.circle
@@ -112,7 +117,7 @@ export const IndiaMap = () => {
             fontFamily="JetBrains Mono, monospace"
             letterSpacing={0.8}
           >
-            22.31°N · 73.18°E
+            22.31N · 73.18E
           </text>
         </g>
       </svg>
