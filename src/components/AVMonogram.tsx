@@ -28,8 +28,8 @@ export const AVMonogram = ({ className = "w-8 h-8" }: { className?: string }) =>
       d="M 28 82 L 44 22 L 60 82 M 34 65 L 54 65"
       stroke="currentColor"
       strokeWidth="5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap="square"
+      strokeLinejoin="miter"
     />
 
     {/* The V */}
@@ -37,8 +37,8 @@ export const AVMonogram = ({ className = "w-8 h-8" }: { className?: string }) =>
       d="M 48 28 L 68 88 L 82 28"
       stroke="currentColor"
       strokeWidth="5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap="square"
+      strokeLinejoin="miter"
     />
 
     {/* Right feather (wrapping the V) */}

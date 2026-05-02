@@ -7,56 +7,56 @@
 /* Premium minimal dark portfolio. All colors HSL. */
 @layer base {
   :root {
-    --background: 240 10% 2%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
 
-    --card: 240 10% 4%;
+    --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 4%;
+    --popover: 0 0% 2%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 252 83% 67%;
+    --primary: 270 95% 65%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 264 90% 72%;
+    --primary-glow: 270 100% 75%;
 
     --secondary: 240 6% 10%;
     --secondary-foreground: 0 0% 96%;
 
-    --muted: 240 5% 8%;
+    --muted: 240 5% 5%;
     --muted-foreground: 240 5% 55%;
 
-    --accent: 252 83% 67%;
+    --accent: 270 95% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 12%;
-    --input: 240 6% 12%;
-    --ring: 252 83% 67%;
+    --border: 240 6% 15%;
+    --input: 240 6% 15%;
+    --ring: 270 95% 65%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
     /* Design tokens */
-    --gradient-glow: radial-gradient(ellipse at top, hsl(252 83% 67% / 0.12), transparent 65%);
-    --gradient-text: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 60%));
-    --shadow-glow: 0 0 60px hsl(252 83% 67% / 0.20);
-    --shadow-soft: 0 1px 0 hsl(0 0% 100% / 0.03) inset, 0 20px 40px -20px hsl(0 0% 0% / 0.6);
+    --gradient-glow: none;
+    --gradient-text: linear-gradient(180deg, hsl(0 0% 100%), hsl(270 95% 65% / 0.5));
+    --shadow-glow: 0 0 40px hsl(270 95% 65% / 0.25);
+    --shadow-soft: none;
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
     
     /* Glass tokens */
-    --glass-bg: 240 10% 4%;
-    --glass-border: 240 6% 12%;
+    --glass-bg: 0 0% 5%;
+    --glass-border: 240 6% 20%;
 
-    --sidebar-background: 240 10% 4%;
+    --sidebar-background: 0 0% 2%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 252 83% 67%;
+    --sidebar-primary: 270 95% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 6% 10%;
     --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 240 6% 12%;
-    --sidebar-ring: 252 83% 67%;
+    --sidebar-border: 240 6% 15%;
+    --sidebar-ring: 270 95% 65%;
   }
 
   .dark {
@@ -70,8 +70,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "cv11";
-    background-image: var(--gradient-glow);
-    background-attachment: fixed;
   }
   ::selection { background: hsl(var(--primary) / 0.3); color: hsl(var(--foreground)); }
 }

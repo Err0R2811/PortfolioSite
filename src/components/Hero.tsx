@@ -32,23 +32,16 @@ export const Hero = () => {
         for noisy problems.
       </motion.h1>
 
-      <motion.div
+      <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease, delay: 0.5 }}
-        className="mt-12 flex flex-col sm:flex-row items-center sm:items-center gap-8 max-w-3xl"
+        className="mt-10 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
       >
-        <img 
-          src="/images/profile.jpeg" 
-          alt="Portrait of Amit" 
-          className="w-32 h-32 md:w-44 md:h-44 rounded-full object-cover shrink-0 grayscale hover:grayscale-0 transition-all duration-500 hover:scale-[1.03] shadow-[0_0_20px_rgba(255,255,255,0.05)] border border-border/30"
-        />
-        <p className="text-base md:text-[1.1rem] text-muted-foreground leading-relaxed">
-          <span className="text-foreground font-medium">Amit Virpara</span> — software & AI developer focused on data systems,
-          full-stack platforms, and the boring infrastructure that makes
-          intelligent products feel inevitable.
-        </p>
-      </motion.div>
+        Amit Virpara — software & AI developer focused on data systems,
+        full-stack platforms, and the boring infrastructure that makes
+        intelligent products feel inevitable.
+      </motion.p>
 
       <motion.div
         initial={{ opacity: 0 }}

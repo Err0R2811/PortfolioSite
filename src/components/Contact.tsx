@@ -36,7 +36,7 @@ export const Contact = () => (
         href="mailto:amitvirpara@outlook.com"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="mt-12 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-mono text-sm shadow-glow hover:shadow-[0_0_80px_hsl(var(--primary)/0.5)] transition-shadow"
+        className="mt-12 inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-mono text-sm shadow-glow hover:shadow-[0_0_80px_hsl(var(--primary)/0.5)] transition-shadow"
       >
         Start a conversation
         <span aria-hidden>→</span>

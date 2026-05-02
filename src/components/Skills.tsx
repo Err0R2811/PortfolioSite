@@ -80,7 +80,7 @@ export const Skills = () => (
             ))}
           </ul>
 
-          <div className="mt-12 p-6 border border-border rounded-lg bg-muted/20">
+          <div className="mt-12 p-6 border border-border bg-muted/20">
             <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
               Currently
             </div>

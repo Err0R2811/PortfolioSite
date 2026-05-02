@@ -33,59 +33,20 @@ export const Systems = () => (
       title="How I make decisions."
       subtitle="The principles underneath the projects. Stable enough to outlast a stack."
     />
-    <div className="grid md:grid-cols-2 gap-px bg-border border border-border rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl shadow-black/40">
+    <div className="grid md:grid-cols-2 gap-px bg-border border border-border">
       {principles.map((p, i) => (
-        <Reveal key={p.n} delay={i * 0.08} className="bg-background">
-          <motion.div 
-            className="p-8 md:p-10 h-full relative overflow-hidden group cursor-default"
-            whileHover="hover"
-            initial="idle"
-          >
-            {/* Soft background fade-in */}
-            <motion.div
-              className="absolute inset-0 bg-muted/40"
-              variants={{
-                idle: { opacity: 0 },
-                hover: { opacity: 1 }
-              }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            />
-            
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="font-mono text-xs text-primary/60 mb-6 md:mb-8 flex justify-between items-center transition-colors duration-500 group-hover:text-primary">
-                <span>{p.n}</span>
-                <motion.span
-                  variants={{
-                    idle: { x: -10, opacity: 0 },
-                    hover: { x: 0, opacity: 1 }
-                  }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </motion.span>
-              </div>
-              <motion.h3 
-                variants={{
-                  idle: { x: 0 },
-                  hover: { x: 4 }
-                }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="text-xl md:text-2xl font-semibold mb-3 tracking-tight"
-              >
-                {p.title}
-              </motion.h3>
-              <motion.p 
-                variants={{
-                  idle: { x: 0 },
-                  hover: { x: 4 }
-                }}
-                transition={{ duration: 0.4, delay: 0.03, ease: [0.22, 1, 0.36, 1] }}
-                className="text-muted-foreground leading-relaxed text-sm md:text-base mt-auto"
-              >
-                {p.body}
-              </motion.p>
+        <Reveal key={p.n} delay={i * 0.06}>
+          <div className="bg-background p-8 md:p-10 h-full hover:bg-muted/40 transition-colors duration-500 group cursor-default">
+            <div className="font-mono text-xs text-primary mb-6 transition-colors duration-500 group-hover:text-primary">
+              {p.n}
             </div>
-          </motion.div>
+            <h3 className="text-xl md:text-2xl font-semibold mb-3 tracking-tight">
+              {p.title}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+              {p.body}
+            </p>
+          </div>
         </Reveal>
       ))}
     </div>
