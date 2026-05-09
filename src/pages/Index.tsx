@@ -25,6 +25,13 @@ const Index = () => {
         <Skills />
         <Contact />
       </main>
+      <footer
+        className="px-6 md:px-10 max-w-6xl mx-auto py-8 border-t border-border flex flex-col md:flex-row justify-between gap-4 font-mono text-[11px] text-muted-foreground"
+        role="contentinfo"
+      >
+        <span>© {new Date().getFullYear()} Amit Virpara. Built quietly.</span>
+        <span>Vadodara, Gujarat — IN</span>
+      </footer>
       <SettingsControl />
     </>
   );

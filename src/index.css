@@ -72,6 +72,22 @@
     font-feature-settings: "ss01", "cv11";
   }
   ::selection { background: hsl(var(--primary) / 0.3); color: hsl(var(--foreground)); }
+
+  /* Accessible focus indicators — minimum 3:1 contrast on dark bg */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion — system-level fallback */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer utilities {

@@ -23,9 +23,19 @@ dist-ssr
 *.sln
 *.sw?
 
-# Generated graphs
+# AI tool artifacts
+CLAUDE.md
+.claude/
+.claude-flow/
+.remember/
+.omc/
+.mcp.json
 graphify-out/
-/home/error28/Desktop/PortfolioSite/New_resume.pdf
-/home/error28/Desktop/PortfolioSite/Amit_Virpara_Portfolio_Audit_Report.docx
-/home/error28/Desktop/PortfolioSite/a.html
-/home/error28/Desktop/PortfolioSite/claude_predictions.html
+ruvector.db
+bun.lockb
+
+# Misc scratch files
+a.html
+claude_predictions.html
+Amit_Virpara_Portfolio_Audit_Report.docx
+New_resume.pdf

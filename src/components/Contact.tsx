@@ -19,7 +19,7 @@ export const Contact = () => (
     </Reveal>
 
     <Reveal delay={0.05}>
-      <h2 className="text-4xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.02] text-gradient max-w-4xl">
+      <h2 id="contact-heading" className="text-4xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.02] text-gradient max-w-4xl">
         Have a problem<br />worth solving?
       </h2>
     </Reveal>
@@ -70,6 +70,7 @@ export const Contact = () => (
             href={l.href}
             target={l.href.startsWith("http") ? "_blank" : undefined}
             rel="noreferrer"
+            aria-label={`${l.label}: ${l.value}`}
             className="bg-background p-6 hover:bg-muted/40 transition-colors group"
           >
             <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
@@ -83,9 +84,5 @@ export const Contact = () => (
       </div>
     </Reveal>
 
-    <footer className="mt-24 pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-4 font-mono text-[11px] text-muted-foreground">
-      <span>© 2026 Amit Virpara. Built quietly.</span>
-      <span>Vadodara, Gujarat — IN</span>
-    </footer>
   </section>
 );

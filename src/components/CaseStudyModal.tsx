@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { X, ArrowUpRight, Github } from "lucide-react";
 import { Project } from "@/data/projects";
 
@@ -12,27 +12,40 @@ import { PixelDissolve } from "./PixelDissolve";
 
 export const CaseStudyModal = ({ project, onClose }: Props) => {
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  const handleClose = useCallback(() => {
+    setIsAnimatingOut(true);
+    setTimeout(() => {
+      setIsAnimatingOut(false);
+      onClose();
+      // Return focus to the element that triggered the modal
+      if (previousFocusRef.current) {
+        previousFocusRef.current.focus();
+        previousFocusRef.current = null;
+      }
+    }, 850);
+  }, [onClose]);
 
   useEffect(() => {
     if (!project) return;
+    // Store the currently focused element to return focus on close
+    previousFocusRef.current = document.activeElement as HTMLElement;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") handleClose();
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+    // Auto-focus the close button for keyboard users
+    requestAnimationFrame(() => closeButtonRef.current?.focus());
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [project]);
+  }, [project, handleClose]);
 
-  const handleClose = () => {
-    setIsAnimatingOut(true);
-    setTimeout(() => {
-      setIsAnimatingOut(false);
-      onClose();
-    }, 850);
-  };
+
 
   return (
     <AnimatePresence>
@@ -61,6 +74,7 @@ export const CaseStudyModal = ({ project, onClose }: Props) => {
             <div className="sticky top-0 z-20 flex items-center justify-between px-6 md:px-10 py-5 bg-card/95 backdrop-blur border-b border-border">
               <span className="font-mono text-xs text-primary">{project.year} · case study</span>
               <button
+                ref={closeButtonRef}
                 onClick={handleClose}
                 aria-label="Close case study"
                 className="w-9 h-9 border border-border flex items-center justify-center hover:border-primary/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -76,7 +90,8 @@ export const CaseStudyModal = ({ project, onClose }: Props) => {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — project screenshot`}
+                  loading="lazy"
                   className={`w-full h-auto max-h-[400px] object-cover object-top transition-all duration-1000 ${isAnimatingOut ? "grayscale" : "grayscale-0"}`}
                 />
               </div>

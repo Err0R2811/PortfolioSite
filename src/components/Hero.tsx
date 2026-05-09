@@ -47,7 +47,11 @@ export const Hero = () => {
           />
           <img 
             src="/images/profile.jpeg" 
-            alt="Portrait of Amit" 
+            alt="Amit Virpara, software and AI developer based in Vadodara, India" 
+            width={256}
+            height={256}
+            loading="eager"
+            fetchPriority="high"
             className="w-48 h-48 md:w-64 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-[1.02] border border-border shadow-soft rounded-none"
           />
 
