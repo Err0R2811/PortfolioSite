@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ResumeButton } from "./ResumeButton";
 import { AVMonogram } from "./AVMonogram";
+import GooeyNav from "./GooeyNav";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -54,21 +55,18 @@ export const Nav = () => {
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8 text-sm text-muted-foreground" role="list">
-          {links.map((l, i) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="hover:text-foreground transition-colors duration-300 font-mono focus-visible:outline-none focus-visible:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background rounded"
-              >
-                <span className="text-primary/60 mr-1" aria-hidden>
-                  0{i + 1}.
-                </span>
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:block">
+          <GooeyNav
+            items={links}
+            particleCount={15}
+            particleDistances={[90, 10]}
+            particleR={100}
+            initialActiveIndex={0}
+            animationTime={600}
+            timeVariance={300}
+            colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+          />
+        </div>
         <div className="hidden md:block">
           <ResumeButton variant="ghost" />
         </div>

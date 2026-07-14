@@ -21,12 +21,14 @@ const groups = [
 ];
 
 const certs = [
-  "AWS Academy — Cloud Foundations",
-  "Cisco CCNA — Networks",
-  "Cisco CCNA — Routing & Wireless",
-  "IBM — Applied Data Science with Python",
-  "IBM SkillsBuild — AI Fundamentals",
-  "Google — Foundations: Data, Everywhere",
+  "AWS Academy Graduate: Cloud Foundations — AWS",
+  "CCNA: Introduction to Networks — Cisco",
+  "CCNA: Switching, Routing & Wireless Essentials — Cisco",
+  "CCNA: Enterprise Networking, Security, and Automation — Cisco",
+  "Artificial Intelligence Fundamentals — IBM SkillsBuild",
+  "Applied Data Science with Python — IBM",
+  "Data Visualization with Python — Cognitive Class",
+  "Foundations: Data, Data, Everywhere — Google",
 ];
 
 export const Skills = () => (
@@ -50,11 +52,12 @@ export const Skills = () => (
                   0{g.items.length}
                 </span>
               </div>
-              <ul className="flex flex-wrap gap-x-4 gap-y-2 text-base md:text-lg">
+              <ul className="flex flex-wrap gap-3">
                 {g.items.map((it) => (
-                  <li key={it} className="text-foreground/90">
-                    {it}
-                    <span className="text-muted-foreground/40 ml-3 last:hidden">·</span>
+                  <li key={it}>
+                    <span className="inline-block px-4 py-2 border border-border rounded-md bg-muted/20 text-foreground/90 text-sm md:text-base transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/10 hover:text-primary cursor-default hover:shadow-lg">
+                      {it}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -68,25 +71,23 @@ export const Skills = () => (
           <div className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-6">
             Certifications
           </div>
-          <ul className="space-y-3">
+          <ul className="flex flex-wrap gap-3">
             {certs.map((c) => (
-              <li
-                key={c}
-                className="text-sm text-muted-foreground flex items-start gap-3"
-              >
-                <span className="font-mono text-primary/60 text-xs mt-1">→</span>
-                <span>{c}</span>
+              <li key={c}>
+                <span className="inline-block px-4 py-2 border border-border rounded-md bg-muted/20 text-foreground/90 text-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/10 hover:text-primary cursor-default hover:shadow-lg">
+                  {c}
+                </span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-12 p-6 border border-border bg-muted/20 rounded">
+          <div className="mt-12 p-6 border border-border rounded-md bg-muted/20">
             <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
               Currently
             </div>
             <p className="text-sm leading-relaxed">
               Integrated B.Tech, Computer Science — Parul University.
-              <span className="text-muted-foreground"> CGPA 8.54 / 10.</span>
+              <span className="text-muted-foreground"> CGPA 8.52 / 10.</span>
             </p>
           </div>
         </div>

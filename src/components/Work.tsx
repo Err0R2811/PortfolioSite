@@ -62,7 +62,7 @@ export const Work = () => {
 
       {/* Filters */}
       <Reveal>
-      <div className="mb-12 space-y-4 p-6 border border-border rounded-xl bg-muted/10" role="group" aria-label="Project filters">
+        <div className="space-y-4 p-6 border border-border rounded-xl bg-muted/10 mb-12" role="group" aria-label="Project filters">
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70 mr-2">
               Domain
@@ -116,12 +116,12 @@ export const Work = () => {
       <ul className="border-t border-border" role="list">
         {filtered.map((p, i) => (
           <Reveal key={p.id} delay={Math.min(i * 0.04, 0.2)}>
-            <li>
+            <li className="border-b border-border">
               <motion.button
                 whileHover="hover"
                 onClick={() => setActive(p)}
                 aria-label={`Open ${p.title} case study`}
-                className="w-full text-left grid md:grid-cols-12 gap-6 py-8 md:py-10 border-b border-border relative cursor-pointer group focus-visible:outline-none focus-visible:bg-muted/30"
+                className="w-full text-left grid md:grid-cols-12 gap-6 py-8 md:py-10 relative cursor-pointer group focus-visible:outline-none focus-visible:bg-muted/30"
               >
                 <motion.div
                   variants={{ hover: { opacity: 1 } }}
@@ -132,16 +132,16 @@ export const Work = () => {
                 <div className="md:col-span-2 font-mono text-xs text-muted-foreground flex flex-col justify-between">
                   <span>{p.year}</span>
                   {p.image && (
-                    <motion.div 
+                    <motion.div
                       variants={{ hover: { scale: 1.05, opacity: 1 } }}
                       initial={{ opacity: 0.6, scale: 1 }}
                       className="hidden md:block w-full aspect-square border border-border overflow-hidden bg-muted/20 rounded"
                     >
-                      <img 
-                        src={p.image} 
+                      <img
+                        src={p.image}
                         alt={`${p.title} project thumbnail`}
                         loading="lazy"
-                        className={`w-full h-full object-cover transition-all duration-700 ${active?.id === p.id ? "grayscale-0 scale-[1.02]" : "grayscale group-hover:grayscale-0"}`} 
+                        className={`w-full h-full object-cover transition-all duration-700 ${active?.id === p.id ? "grayscale-0 scale-[1.02]" : "grayscale group-hover:grayscale-0"}`}
                       />
                     </motion.div>
                   )}

@@ -7,22 +7,22 @@ const principles = [
   {
     n: "01",
     title: "Constraints first",
-    body: "Edge cases — Infinity, division by zero, empty states — are the product. I design from the failure modes inward.",
+    body: "Edge cases — timeouts, empty responses, null states, rate limits — are the product. I design from the failure modes inward, not the happy path outward.",
   },
   {
     n: "02",
-    title: "Data is the spec",
-    body: "Schemas, RLS, and type contracts are written before the UI. The interface is whatever the data already implies.",
+    title: "Systems thinking",
+    body: "A query, a container, a packet, an API call — they're the same problem wearing different clothes. I trace the path end to end instead of staring at whichever layer broke.",
   },
   {
     n: "03",
     title: "Boring infrastructure",
-    body: "Postgres, REST, server-rendered pages. Boring scales. Novelty is reserved for the actual problem.",
+    body: "Postgres, REST, plain containers, standard protocols. Boring scales and is easy to secure. Novelty is reserved for the actual problem — not for glue code.",
   },
   {
     n: "04",
     title: "Calm interfaces",
-    body: "Motion is intentional. Color is restrained. The user's attention is the most expensive resource on the page.",
+    body: "Motion is intentional. Color is restrained. Whether it's a dashboard, an API response, or a page — the user's attention and the network's bandwidth are both expensive. I don't spend either carelessly.",
   },
 ];
 
@@ -33,7 +33,7 @@ export const Systems = () => (
       title="How I make decisions."
       subtitle="The principles underneath the projects. Stable enough to outlast a stack."
     />
-    <div className="grid md:grid-cols-2 gap-px bg-border border border-border rounded-xl overflow-hidden">
+    <div className="grid md:grid-cols-2 gap-px bg-border rounded-xl overflow-hidden">
       {principles.map((p, i) => (
         <Reveal key={p.n} delay={i * 0.06}>
           <div className="bg-background p-8 md:p-10 h-full hover:bg-muted/40 transition-colors duration-500 group cursor-default">

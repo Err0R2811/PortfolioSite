@@ -1,10 +1,33 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import { ResumeButton } from "./ResumeButton";
+import TiltedCard from "./TiltedCard";
+import GradientText from "./GradientText";
+import Shuffle from "./Shuffle";
+import { useEffect, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1];
 
+const roles = [
+  "AI Engineering roles",
+  "AI Backend Engineer roles",
+  "Software Engineering roles",
+  "Backend Developer roles",
+  "Cloud Engineer roles",
+  "Data Analyst roles",
+  "Data Scientist roles"
+];
+
 export const Hero = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(prev => (prev + 1) % roles.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section
       id="hero"
@@ -15,22 +38,50 @@ export const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease, delay: 0.1 }}
-        className="font-mono text-[11px] text-primary mb-10 tracking-[0.2em] uppercase"
+        className="font-mono text-[11px] text-primary mb-10 tracking-[0.2em] uppercase flex items-center"
       >
         <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 animate-pulse" />
-        Available for AI engineering roles
+        Available for{' '}
+        <span style={{ minWidth: '200px', display: 'inline-block', marginLeft: '0.5em' }}>
+          <Shuffle
+            key={roles[index]}
+            text={roles[index]}
+            shuffleDirection="right"
+            duration={0.35}
+            animationMode="evenodd"
+            shuffleTimes={2}
+            stagger={0.03}
+            ease="power3.out"
+            threshold={0.1}
+            triggerOnce={false}
+            triggerOnHover={true}
+            respectReducedMotion={true}
+            scrambleCharset="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            colorFrom="#7dd3fc"
+            colorTo="#ffffff"
+            tag="span"
+            className="inline-block"
+            style={{ fontSize: '0.6875rem', fontFamily: 'inherit' }}
+          />
+        </span>
       </motion.p>
 
-      <motion.h1
+      <motion.div
         id="hero-heading"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease, delay: 0.2 }}
-        className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] tracking-tight text-gradient glow-text max-w-5xl"
+        className="max-w-5xl"
       >
-        Building calm software<br />
-        for noisy problems.
-      </motion.h1>
+        <GradientText
+          colors={["#7dd3fc", "#c084fc", "#f472b6", "#7dd3fc"]}
+          animationSpeed={5}
+          showBorder={false}
+          className="text-4xl md:text-6xl font-semibold tracking-tight"
+        >
+          Building calm software for noisy problems.
+        </GradientText>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -38,25 +89,26 @@ export const Hero = () => {
         transition={{ duration: 0.7, ease, delay: 0.5 }}
         className="mt-12 flex flex-col md:flex-row items-center gap-10 md:gap-16"
       >
-        <div className="relative shrink-0 group">
+        <div className="relative shrink-0">
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease, delay: 0.6 }}
-            className="absolute -inset-4 border border-primary/20 pointer-events-none group-hover:border-primary/40 transition-colors duration-500 rounded-none"
+            className="absolute -inset-4 border border-primary/20 pointer-events-none transition-colors duration-500 rounded-none"
           />
-          <img 
-            src="/images/profile.jpeg" 
-            alt="Amit Virpara, software and AI developer based in Vadodara, India" 
-            width={256}
-            height={256}
-            loading="eager"
-            fetchPriority="high"
-            className="w-48 h-48 md:w-64 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-[1.02] border border-border shadow-soft rounded-none"
+          <TiltedCard
+            imageSrc="/images/profile.jpeg"
+            altText="Amit Virpara, software and AI developer based in Vadodara, India"
+            containerHeight="192px"
+            containerWidth="192px"
+            imageHeight="192px"
+            imageWidth="192px"
+            scaleOnHover={1.05}
+            rotateAmplitude={12}
+            showMobileWarning={false}
+            showTooltip={false}
+            className="w-48 h-48 md:w-64 md:h-64"
           />
-
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40 group-hover:border-primary transition-colors" />
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40 group-hover:border-primary transition-colors" />
         </div>
         <p className="text-base md:text-xl text-muted-foreground leading-relaxed max-w-xl">
           <span className="text-foreground font-semibold">Amit Virpara</span> — software & AI developer focused on data systems,

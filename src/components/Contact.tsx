@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { IndiaMap } from "./IndiaMap";
+import BorderGlow from "./BorderGlow";
 
 const links = [
   { label: "Email", value: "amitvirpara@outlook.com", href: "mailto:amitvirpara@outlook.com" },
@@ -44,44 +45,68 @@ export const Contact = () => (
     </Reveal>
 
     <Reveal delay={0.3}>
-      <div className="mt-24 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div>
-          <div className="font-mono text-xs text-primary mb-4 tracking-widest uppercase">
-            <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 animate-pulse" />
-            Based in India
+      <BorderGlow
+        edgeSensitivity={30}
+        glowColor="40 80 80"
+        backgroundColor="hsl(var(--background))"
+        borderRadius={12}
+        glowRadius={30}
+        glowIntensity={0.8}
+        coneSpread={25}
+        colors={['#c084fc', '#f472b6', '#38bdf8']}
+        className="mt-24"
+      >
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center p-6">
+          <div>
+            <div className="font-mono text-xs text-primary mb-4 tracking-widest uppercase">
+              <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 animate-pulse" />
+              Based in India
+            </div>
+            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+              Working from Vadodara,<br />shipping worldwide.
+            </h3>
+            <p className="text-muted-foreground text-sm md:text-base max-w-md leading-relaxed">
+              IST (UTC+5:30). Comfortable across overlapping windows with EU and
+              US timezones. Async-first, deep-work biased.
+            </p>
           </div>
-          <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-            Working from Vadodara,<br />shipping worldwide.
-          </h3>
-          <p className="text-muted-foreground text-sm md:text-base max-w-md leading-relaxed">
-            IST (UTC+5:30). Comfortable across overlapping windows with EU and
-            US timezones. Async-first, deep-work biased.
-          </p>
+          <IndiaMap />
         </div>
-        <IndiaMap />
-      </div>
+      </BorderGlow>
     </Reveal>
 
     <Reveal delay={0.35}>
-      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border rounded overflow-hidden">
-        {links.map((l) => (
-          <a
-            key={l.label}
-            href={l.href}
-            target={l.href.startsWith("http") ? "_blank" : undefined}
-            rel="noreferrer"
-            aria-label={`${l.label}: ${l.value}`}
-            className="bg-background p-6 hover:bg-muted/40 transition-colors group"
-          >
-            <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
-              {l.label}
-            </div>
-            <div className="text-sm group-hover:text-primary transition-colors break-all">
-              {l.value}
-            </div>
-          </a>
-        ))}
-      </div>
+      <BorderGlow
+        edgeSensitivity={30}
+        glowColor="40 80 80"
+        backgroundColor="hsl(var(--background))"
+        borderRadius={12}
+        glowRadius={30}
+        glowIntensity={0.8}
+        coneSpread={25}
+        colors={['#c084fc', '#f472b6', '#38bdf8']}
+        className="mt-20"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded overflow-hidden">
+          {links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              target={l.href.startsWith("http") ? "_blank" : undefined}
+              rel="noreferrer"
+              aria-label={`${l.label}: ${l.value}`}
+              className="bg-background p-6 hover:bg-muted/40 transition-colors group"
+            >
+              <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
+                {l.label}
+              </div>
+              <div className="text-sm group-hover:text-primary transition-colors break-all">
+                {l.value}
+              </div>
+            </a>
+          ))}
+        </div>
+      </BorderGlow>
     </Reveal>
 
   </section>
