@@ -62,7 +62,7 @@ const Shuffle = ({
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [ready, setReady] = useState(false);
 
-  const splitRef = useRef<any>(null);
+  const splitRef = useRef<GSAPSplitText | null>(null);
   const wrappersRef = useRef<HTMLSpanElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const playingRef = useRef(false);
@@ -138,7 +138,7 @@ const Shuffle = ({
           reduceWhiteSpace: false
         });
 
-        const chars = splitRef.current.chars || [];
+        const chars = (splitRef.current.chars || []) as HTMLElement[];
         wrappersRef.current = [];
 
         const rolls = Math.max(1, Math.floor(shuffleTimes));
@@ -171,7 +171,7 @@ const Shuffle = ({
           parent.insertBefore(wrap, ch);
           wrap.appendChild(inner);
 
-          const firstOrig = ch.cloneNode(true);
+          const firstOrig = ch.cloneNode(true) as HTMLElement;
           Object.assign(firstOrig.style, {
             display: shuffleDirection === 'up' || shuffleDirection === 'down' ? 'block' : 'inline-block',
             width: w + 'px',
@@ -187,7 +187,7 @@ const Shuffle = ({
 
           inner.appendChild(firstOrig);
           for (let k = 0; k < rolls; k++) {
-            const c = ch.cloneNode(true);
+            const c = ch.cloneNode(true) as HTMLElement;
             if (scrambleCharset) c.textContent = rand(scrambleCharset);
             Object.assign(c.style, {
               display: shuffleDirection === 'up' || shuffleDirection === 'down' ? 'block' : 'inline-block',
@@ -298,17 +298,17 @@ const Shuffle = ({
           }
         });
 
-        const addTween = (targets: any, at: string) => {
-          const vars: any = {
+        const addTween = (targets: gsap.TweenTarget, at: string) => {
+          const vars: gsap.TweenVars = {
             duration,
             ease,
             force3D: true,
             stagger: animationMode === 'evenodd' ? stagger : 0
           };
           if (isVertical) {
-            vars.y = (i: number, t: any) => parseFloat(t.getAttribute('data-final-y') || '0');
+            vars.y = (i: number, t: HTMLElement) => parseFloat(t.getAttribute('data-final-y') || '0');
           } else {
-            vars.x = (i: number, t: any) => parseFloat(t.getAttribute('data-final-x') || '0');
+            vars.x = (i: number, t: HTMLElement) => parseFloat(t.getAttribute('data-final-x') || '0');
           }
 
           tl.to(targets, vars, at);
@@ -328,7 +328,7 @@ const Shuffle = ({
         } else {
           strips.forEach(strip => {
             const d = Math.random() * maxDelay;
-            const vars: any = {
+            const vars: gsap.TweenVars = {
               duration,
               ease,
               force3D: true

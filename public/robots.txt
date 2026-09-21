@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://amitvirpara.netlify.app/sitemap.xml
+Sitemap: https://amitvirpara.runs-on.dev/sitemap.xml

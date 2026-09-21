@@ -25,14 +25,18 @@ export const PrefsProvider = ({ children }: { children: ReactNode }) => {
       } else if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         setReducedMotionState(true);
       }
-    } catch {}
+    } catch {
+      // localStorage unavailable — keep defaults
+    }
   }, []);
 
   const persist = (next: Partial<{ reducedMotion: boolean; particles: boolean }>) => {
     try {
       const current = { reducedMotion, particles, ...next };
       localStorage.setItem(KEY, JSON.stringify(current));
-    } catch {}
+    } catch {
+      // localStorage unavailable — prefs stay session-only
+    }
   };
 
   const setReducedMotion = (v: boolean) => {

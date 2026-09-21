@@ -1,25 +1,41 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactNode } from "react";
+import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { PrefsProvider } from "@/context/PrefsContext";
+import { PrefsProvider, usePrefs } from "@/context/PrefsContext";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import SplashCursor from "@/components/SplashCursor";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
-const queryClient = new QueryClient();
+const MotionPrefs = ({ children }: { children: ReactNode }) => {
+  const { reducedMotion } = usePrefs();
+  return (
+    <MotionConfig reducedMotion={reducedMotion ? "always" : "never"}>
+      {children}
+    </MotionConfig>
+  );
+};
+
+const CursorEffect = () => {
+  const { particles } = usePrefs();
+  if (!particles) return null;
+  return (
+    <SplashCursor
+      DENSITY_DISSIPATION={5}
+      COLOR_UPDATE_SPEED={14}
+      RAINBOW_MODE
+    />
+  );
+};
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <PrefsProvider>
+  <PrefsProvider>
+    <MotionPrefs>
       <TooltipProvider>
-        <SplashCursor
-          DENSITY_DISSIPATION={5}
-          COLOR_UPDATE_SPEED={14}
-          RAINBOW_MODE
-        />
+        <CursorEffect />
         <LoadingScreen />
         <Toaster />
         <Sonner />
@@ -31,8 +47,8 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </PrefsProvider>
-  </QueryClientProvider>
+    </MotionPrefs>
+  </PrefsProvider>
 );
 
 export default App;

@@ -48,7 +48,7 @@ export const Nav = () => {
         <a
           href="#"
           className="font-semibold text-sm tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary flex items-center gap-2 text-foreground rounded"
-          aria-label="Amit Virpara — home"
+          aria-label="Amit Virpara, home"
         >
           <AVMonogram className="w-7 h-7 text-primary" />
           Amit Virpara

@@ -6,8 +6,11 @@ import { Systems } from "@/components/Systems";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { SettingsControl } from "@/components/SettingsControl";
+import { usePrefs } from "@/context/PrefsContext";
 
 const Index = () => {
+  const { particles } = usePrefs();
+
   return (
     <>
       <a
@@ -16,19 +19,21 @@ const Index = () => {
       >
         Skip to content
       </a>
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
-        <Particles
-          particleColors={["#7dd3fc", "#c084fc", "#f472b6"]}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover={false}
-          alphaParticles={false}
-          disableRotation={false}
-          pixelRatio={1}
-        />
-      </div>
+      {particles && (
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+          <Particles
+            particleColors={["#7dd3fc", "#c084fc", "#f472b6"]}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={false}
+            alphaParticles={false}
+            disableRotation={false}
+            pixelRatio={1}
+          />
+        </div>
+      )}
       <Nav />
       <main id="main" className="relative min-h-screen overflow-x-hidden">
         <Hero />
@@ -42,7 +47,7 @@ const Index = () => {
         role="contentinfo"
       >
         <span>© {new Date().getFullYear()} Amit Virpara. Built quietly.</span>
-        <span>Vadodara, Gujarat — IN</span>
+        <span>Vadodara, Gujarat · IN</span>
       </footer>
       <SettingsControl />
     </>

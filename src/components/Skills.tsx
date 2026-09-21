@@ -21,20 +21,20 @@ const groups = [
 ];
 
 const certs = [
-  "AWS Academy Graduate: Cloud Foundations — AWS",
-  "CCNA: Introduction to Networks — Cisco",
-  "CCNA: Switching, Routing & Wireless Essentials — Cisco",
-  "CCNA: Enterprise Networking, Security, and Automation — Cisco",
-  "Artificial Intelligence Fundamentals — IBM SkillsBuild",
-  "Applied Data Science with Python — IBM",
-  "Data Visualization with Python — Cognitive Class",
-  "Foundations: Data, Data, Everywhere — Google",
+  "AWS Academy Graduate: Cloud Foundations · AWS",
+  "CCNA: Introduction to Networks · Cisco",
+  "CCNA: Switching, Routing & Wireless Essentials · Cisco",
+  "CCNA: Enterprise Networking, Security, and Automation · Cisco",
+  "Artificial Intelligence Fundamentals · IBM SkillsBuild",
+  "Applied Data Science with Python · IBM",
+  "Data Visualization with Python · Cognitive Class",
+  "Foundations: Data, Data, Everywhere · Google",
 ];
 
 export const Skills = () => (
   <section id="skills" aria-labelledby="skills-heading" className="px-6 md:px-10 max-w-6xl mx-auto py-32 md:py-40">
     <SectionHeader
-      index="03 — Toolkit"
+      index="03 · Toolkit"
       title="Tools I reach for."
       subtitle="Grouped by intent, not hype."
     />
@@ -86,7 +86,7 @@ export const Skills = () => (
               Currently
             </div>
             <p className="text-sm leading-relaxed">
-              Integrated B.Tech, Computer Science — Parul University.
+              Integrated B.Tech, Computer Science · Parul University.
               <span className="text-muted-foreground"> CGPA 8.52 / 10.</span>
             </p>
           </div>

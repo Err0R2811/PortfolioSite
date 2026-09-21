@@ -14,7 +14,7 @@ export const Contact = () => (
   <section id="contact" aria-labelledby="contact-heading" className="px-6 md:px-10 max-w-6xl mx-auto py-32 md:py-40">
     <Reveal>
       <div className="flex items-center gap-4 mb-8">
-        <span className="font-mono text-xs text-primary">04 — Contact</span>
+        <span className="font-mono text-xs text-primary">04 · Contact</span>
         <span className="h-px flex-1 bg-border max-w-[120px]" />
       </div>
     </Reveal>

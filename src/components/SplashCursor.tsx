@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck — vendored WebGL fluid sim; raw canvas contexts don't typecheck
 import { useEffect, useRef } from 'react';
 
 function SplashCursor({

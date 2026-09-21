@@ -17,7 +17,7 @@ export type Project = {
   metrics: { label: string; value: string }[];
 };
 
-export type Domain = "AI" | "SaaS" | "E-commerce" | "Analytics" | "Full-stack" | "Tools";
+export type Domain = "AI" | "SaaS" | "E-commerce" | "Analytics" | "Full-stack" | "Tools" | "Client";
 export type StackTag = "Supabase" | "ML" | "Payments" | "Next.js" | "Python";
 
 export const projects: Project[] = [
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     title: "Acadence",
     role: "Attendance Intelligence System",
     problem:
-      "Students and faculty track attendance manually — no visibility into minimum required, missed-lecture impact, or subject-wise risk.",
+      "Students and faculty track attendance manually, with no visibility into minimum required, missed-lecture impact, or subject-wise risk.",
     solution:
       "A real-time platform that computes minimum attendance to pass each subject and surfaces subject-wise analytics for both roles.",
     impact: "Live in production at Parul Institute of Technology. Used daily by students and faculty for attendance tracking and predictions.",
@@ -59,10 +59,10 @@ export const projects: Project[] = [
     title: "WhatsApp Store Builder",
     role: "Multi-tenant SaaS",
     problem:
-      "MSMEs take orders manually on WhatsApp — no catalogue, no automation, no scale.",
+      "MSMEs take orders manually on WhatsApp, with no catalogue, no automation, and no scale.",
     solution:
       "A SaaS that lets any business run a full storefront inside WhatsApp: catalogue, chat-driven ordering, and payment links.",
-    impact: "Targeting MSME businesses in Vadodara — recurring-revenue SaaS with multi-tenant architecture designed from the ground up.",
+    impact: "Targeting MSME businesses in Vadodara, built as a recurring-revenue SaaS with multi-tenant architecture designed from the ground up.",
     stack: ["Next.js", "Supabase", "WhatsApp Cloud API", "Razorpay"],
     systems: [
       "Multi-tenant architecture with isolated catalogues",
@@ -168,7 +168,7 @@ export const projects: Project[] = [
     href: "https://shivaali.vercel.app/",
     github: "https://github.com/Err0R2811/Shivaali",
     image: "/projects/shivaali.png",
-    domains: ["E-commerce"],
+    domains: ["E-commerce", "Client"],
     stackTags: [],
     metrics: [
       { label: "Status", value: "Live" },
@@ -235,7 +235,96 @@ export const projects: Project[] = [
       { label: "Algorithm", value: "Luhn's" },
     ],
   },
+  {
+    id: "rathod-co",
+    year: "2026",
+    title: "Rathod & Co.",
+    role: "Client Business Website",
+    problem:
+      "A Vadodara tax consultancy relied entirely on word-of-mouth referrals, with no online presence for GST, ITR, or company registration services.",
+    solution:
+      "A production marketing site presenting the firm's tax, registration, and accounting services with WhatsApp-first consultation and complete local SEO.",
+    impact: "Built and shipped for a real client. Live at rathodandco.in with structured schema, OG tags, and canonical SEO targeting local tax-consultant searches.",
+    stack: ["React", "TypeScript", "Vite"],
+    systems: [
+      "Service catalogue covering GST, ITR, MSME, Pvt Ltd registration, and accounting",
+      "WhatsApp consultation flow for low-friction lead capture",
+      "Local SEO with ProfessionalService JSON-LD, canonical, and social cards",
+      "Contact, hours, and location details surfaced for walk-in clients",
+    ],
+    architecture: "Static-first frontend · structured service data · SEO schema · CDN-deployed",
+    href: "https://www.rathodandco.in/",
+    image: "/projects/rathod-co.png",
+    domains: ["Client"],
+    stackTags: [],
+    metrics: [
+      { label: "Client", value: "Real business" },
+      { label: "Type", value: "Marketing site" },
+      { label: "SEO", value: "Local + schema" },
+      { label: "Status", value: "Live" },
+    ],
+  },
+  {
+    id: "restaurant-ms",
+    year: "2026",
+    title: "Restaurant Management System",
+    role: "Client Operations Platform",
+    problem:
+      "A restaurant ran orders, billing, and menu updates on paper and ad-hoc sheets, giving staff no table view and the owner no sales data.",
+    solution:
+      "A management system covering table-wise orders, kitchen ticket flow, billing, and menu control with role-based staff access.",
+    impact: "Done for a client. Digitized daily operations from order intake to billing and gave the owner visibility into sales and menu performance.",
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+    systems: [
+      "Table-wise order management with live status tracking",
+      "Kitchen order ticket routing to kitchen staff",
+      "Billing with tax breakdown and receipt generation",
+      "Menu management with availability and pricing control",
+      "Role-based access for owner, cashier, and floor staff",
+    ],
+    architecture:
+      "Next.js app · Supabase Postgres with RLS · real-time order status via subscriptions",
+    image: "/projects/restaurant-ms.svg",
+    domains: ["Full-stack", "Client"],
+    stackTags: ["Supabase", "Next.js"],
+    metrics: [
+      { label: "Client", value: "Delivered" },
+      { label: "Modules", value: "Orders · KOT · Billing" },
+      { label: "Backend", value: "Supabase" },
+      { label: "Status", value: "Handed over" },
+    ],
+  },
+  {
+    id: "courier-ms",
+    year: "2026",
+    title: "Courier Management System",
+    role: "Client Logistics Platform",
+    problem:
+      "A local courier service tracked consignments through registers and phone calls, with no tracking IDs, no status visibility, and manual billing.",
+    solution:
+      "A courier operations system for booking, tracking, branch assignment, and delivery status with automated rate calculation.",
+    impact: "Done for a client. Replaced register-based tracking with a searchable system covering the full consignment lifecycle end to end.",
+    stack: ["React", "TypeScript", "Supabase", "PostgreSQL"],
+    systems: [
+      "Consignment booking with auto-generated tracking IDs",
+      "Status state machine from booked to in-transit to delivered",
+      "Branch and agent assignment for multi-point routing",
+      "Rate calculation by weight, distance, and service type",
+      "Customer-facing tracking lookup by consignment ID",
+    ],
+    architecture:
+      "React SPA · Supabase Postgres · FSM-driven status transitions · per-branch data scoping",
+    image: "/projects/courier-ms.svg",
+    domains: ["Full-stack", "Client"],
+    stackTags: ["Supabase"],
+    metrics: [
+      { label: "Client", value: "Delivered" },
+      { label: "Flow", value: "Booking to delivery" },
+      { label: "Backend", value: "Supabase" },
+      { label: "Status", value: "Handed over" },
+    ],
+  },
 ];
 
-export const allDomains: Domain[] = ["AI", "SaaS", "E-commerce", "Analytics", "Full-stack", "Tools"];
+export const allDomains: Domain[] = ["AI", "SaaS", "E-commerce", "Analytics", "Full-stack", "Tools", "Client"];
 export const allStackTags: StackTag[] = ["Supabase", "ML", "Payments", "Next.js", "Python"];

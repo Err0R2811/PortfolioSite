@@ -1,17 +1,20 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
+import { usePrefs } from "@/context/PrefsContext";
 
 export const LoadingScreen = () => {
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const counterRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
+  const { reducedMotion } = usePrefs();
 
   useEffect(() => {
+    const duration = reducedMotion ? 0.3 : 2.5;
     const tl = gsap.timeline({
       onComplete: () => {
-        setTimeout(() => setIsLoading(false), 500);
+        setTimeout(() => setIsLoading(false), reducedMotion ? 100 : 500);
       },
     });
 
@@ -19,7 +22,7 @@ export const LoadingScreen = () => {
 
     tl.to(countObj, {
       value: 100,
-      duration: 2.5,
+      duration,
       ease: "power2.inOut",
       onUpdate: () => {
         setCounter(Math.floor(countObj.value));
@@ -29,7 +32,7 @@ export const LoadingScreen = () => {
     if (progressRef.current) {
       tl.to(progressRef.current, {
         scaleX: 1,
-        duration: 2.5,
+        duration,
         ease: "power2.inOut",
       }, 0);
     }
@@ -37,7 +40,7 @@ export const LoadingScreen = () => {
     return () => {
       tl.kill();
     };
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <AnimatePresence>
@@ -65,8 +68,8 @@ export const LoadingScreen = () => {
             <div 
               ref={counterRef}
               className="text-7xl md:text-9xl font-bold tracking-tighter tabular-nums"
-              style={{ 
-                color: "black",
+              style={{
+                color: "transparent",
                 WebkitTextStroke: "1.5px hsl(var(--primary))",
                 textShadow: "0 0 30px hsl(var(--primary) / 0.2)"
               }}

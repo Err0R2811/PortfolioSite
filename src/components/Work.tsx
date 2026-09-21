@@ -38,11 +38,13 @@ export const Work = () => {
 
   const filtered = useMemo(
     () =>
-      projects.filter(
-        (p) =>
-          (domain === "All" || p.domains.includes(domain)) &&
-          (stackTag === "All" || p.stackTags.includes(stackTag))
-      ),
+      projects
+        .filter(
+          (p) =>
+            (domain === "All" || p.domains.includes(domain)) &&
+            (stackTag === "All" || p.stackTags.includes(stackTag))
+        )
+        .sort((a, b) => Number(b.year) - Number(a.year)),
     [domain, stackTag]
   );
 
@@ -54,9 +56,9 @@ export const Work = () => {
     >
       <div id="work-heading">
         <SectionHeader
-          index="01 — Selected work"
+          index="01 · Selected work"
           title="Systems worth talking about."
-          subtitle="Each project starts with a problem, not a stack. Click any case study to read the full breakdown."
+          subtitle="Each project starts with a problem, not a stack. Click any project to read the full breakdown."
         />
       </div>
 
@@ -120,7 +122,7 @@ export const Work = () => {
               <motion.button
                 whileHover="hover"
                 onClick={() => setActive(p)}
-                aria-label={`Open ${p.title} case study`}
+                aria-label={`Open ${p.title} details`}
                 className="w-full text-left grid md:grid-cols-12 gap-6 py-8 md:py-10 relative cursor-pointer group focus-visible:outline-none focus-visible:bg-muted/30"
               >
                 <motion.div

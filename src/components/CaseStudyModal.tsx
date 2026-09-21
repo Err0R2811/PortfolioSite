@@ -72,11 +72,11 @@ export const CaseStudyModal = ({ project, onClose }: Props) => {
             <PixelDissolve isExiting={isAnimatingOut} duration={0.8} />
 
             <div className="sticky top-0 z-20 flex items-center justify-between px-6 md:px-10 py-5 bg-card/95 backdrop-blur border-b border-border">
-              <span className="font-mono text-xs text-primary">{project.year} · case study</span>
+              <span className="font-mono text-xs text-primary">{project.year}</span>
               <button
                 ref={closeButtonRef}
                 onClick={handleClose}
-                aria-label="Close case study"
+                aria-label="Close project details"
                 className="w-9 h-9 border border-border flex items-center justify-center hover:border-primary/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <X className="w-4 h-4" />
@@ -90,7 +90,7 @@ export const CaseStudyModal = ({ project, onClose }: Props) => {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                   src={project.image}
-                  alt={`${project.title} — project screenshot`}
+                  alt={`${project.title} project screenshot`}
                   loading="lazy"
                   className={`w-full h-auto max-h-[400px] object-cover object-top transition-all duration-1000 ${isAnimatingOut ? "grayscale" : "grayscale-0"}`}
                 />

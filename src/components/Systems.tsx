@@ -7,29 +7,29 @@ const principles = [
   {
     n: "01",
     title: "Constraints first",
-    body: "Edge cases — timeouts, empty responses, null states, rate limits — are the product. I design from the failure modes inward, not the happy path outward.",
+    body: "Edge cases like timeouts, empty responses, null states, and rate limits are the product. I design from the failure modes inward, not the happy path outward.",
   },
   {
     n: "02",
     title: "Systems thinking",
-    body: "A query, a container, a packet, an API call — they're the same problem wearing different clothes. I trace the path end to end instead of staring at whichever layer broke.",
+    body: "A query, a container, a packet, an API call. They're the same problem wearing different clothes. I trace the path end to end instead of staring at whichever layer broke.",
   },
   {
     n: "03",
     title: "Boring infrastructure",
-    body: "Postgres, REST, plain containers, standard protocols. Boring scales and is easy to secure. Novelty is reserved for the actual problem — not for glue code.",
+    body: "Postgres, REST, plain containers, standard protocols. Boring scales and is easy to secure. Novelty is reserved for the actual problem, not for glue code.",
   },
   {
     n: "04",
     title: "Calm interfaces",
-    body: "Motion is intentional. Color is restrained. Whether it's a dashboard, an API response, or a page — the user's attention and the network's bandwidth are both expensive. I don't spend either carelessly.",
+    body: "Motion is intentional. Color is restrained. Whether it's a dashboard, an API response, or a page, the user's attention and the network's bandwidth are both expensive. I don't spend either carelessly.",
   },
 ];
 
 export const Systems = () => (
   <section id="systems" aria-labelledby="systems-heading" className="px-6 md:px-10 max-w-6xl mx-auto py-32 md:py-40">
     <SectionHeader
-      index="02 — Systems thinking"
+      index="02 · Systems thinking"
       title="How I make decisions."
       subtitle="The principles underneath the projects. Stable enough to outlast a stack."
     />

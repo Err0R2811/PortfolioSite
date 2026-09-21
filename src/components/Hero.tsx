@@ -5,6 +5,7 @@ import TiltedCard from "./TiltedCard";
 import GradientText from "./GradientText";
 import Shuffle from "./Shuffle";
 import { useEffect, useState } from "react";
+import { usePrefs } from "@/context/PrefsContext";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -20,14 +21,16 @@ const roles = [
 
 export const Hero = () => {
   const [index, setIndex] = useState(0);
+  const { reducedMotion } = usePrefs();
 
   useEffect(() => {
+    if (reducedMotion) return;
     const interval = setInterval(() => {
       setIndex(prev => (prev + 1) % roles.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [reducedMotion]);
   return (
     <section
       id="hero"
@@ -43,6 +46,9 @@ export const Hero = () => {
         <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 animate-pulse" />
         Available for{' '}
         <span style={{ minWidth: '200px', display: 'inline-block', marginLeft: '0.5em' }}>
+          {reducedMotion ? (
+            roles[0]
+          ) : (
           <Shuffle
             key={roles[index]}
             text={roles[index]}
@@ -63,6 +69,7 @@ export const Hero = () => {
             className="inline-block"
             style={{ fontSize: '0.6875rem', fontFamily: 'inherit' }}
           />
+          )}
         </span>
       </motion.p>
 
@@ -111,7 +118,7 @@ export const Hero = () => {
           />
         </div>
         <p className="text-base md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-          <span className="text-foreground font-semibold">Amit Virpara</span> — software & AI developer focused on data systems,
+          <span className="text-foreground font-semibold">Amit Virpara</span>, software & AI developer focused on data systems,
           full-stack platforms, and the boring infrastructure that makes
           intelligent products feel inevitable.
         </p>
@@ -149,7 +156,7 @@ export const Hero = () => {
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-8 left-6 md:left-10 font-mono text-[10px] text-muted-foreground/60 tracking-widest"
       >
-        VADODARA · IN — 22.31°N 73.18°E
+        VADODARA · IN · 22.31°N 73.18°E
       </motion.div>
     </section>
   );
