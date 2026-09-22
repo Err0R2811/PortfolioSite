@@ -27,7 +27,6 @@ export const Contact = () => (
 
     <Reveal delay={0.15}>
       <p className="mt-8 max-w-lg text-muted-foreground">
-        I'm targeting AI engineering roles at early-stage product companies.
         Open to consulting, contracting, and the occasional weird side project.
       </p>
     </Reveal>

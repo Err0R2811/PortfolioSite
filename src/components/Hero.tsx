@@ -3,76 +3,15 @@ import { ArrowDownRight } from "lucide-react";
 import { ResumeButton } from "./ResumeButton";
 import TiltedCard from "./TiltedCard";
 import GradientText from "./GradientText";
-import Shuffle from "./Shuffle";
-import { useEffect, useState } from "react";
-import { usePrefs } from "@/context/PrefsContext";
-
 const ease = [0.22, 1, 0.36, 1];
 
-const roles = [
-  "AI Engineering roles",
-  "AI Backend Engineer roles",
-  "Software Engineering roles",
-  "Backend Developer roles",
-  "Cloud Engineer roles",
-  "Data Analyst roles",
-  "Data Scientist roles"
-];
-
 export const Hero = () => {
-  const [index, setIndex] = useState(0);
-  const { reducedMotion } = usePrefs();
-
-  useEffect(() => {
-    if (reducedMotion) return;
-    const interval = setInterval(() => {
-      setIndex(prev => (prev + 1) % roles.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [reducedMotion]);
   return (
     <section
       id="hero"
       aria-labelledby="hero-heading"
       className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 max-w-6xl mx-auto pt-32 pb-20"
     >
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease, delay: 0.1 }}
-        className="font-mono text-[11px] text-primary mb-10 tracking-[0.2em] uppercase flex items-center"
-      >
-        <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 animate-pulse" />
-        Available for{' '}
-        <span style={{ minWidth: '200px', display: 'inline-block', marginLeft: '0.5em' }}>
-          {reducedMotion ? (
-            roles[0]
-          ) : (
-          <Shuffle
-            key={roles[index]}
-            text={roles[index]}
-            shuffleDirection="right"
-            duration={0.35}
-            animationMode="evenodd"
-            shuffleTimes={2}
-            stagger={0.03}
-            ease="power3.out"
-            threshold={0.1}
-            triggerOnce={false}
-            triggerOnHover={true}
-            respectReducedMotion={true}
-            scrambleCharset="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            colorFrom="#7dd3fc"
-            colorTo="#ffffff"
-            tag="span"
-            className="inline-block"
-            style={{ fontSize: '0.6875rem', fontFamily: 'inherit' }}
-          />
-          )}
-        </span>
-      </motion.p>
-
       <motion.div
         id="hero-heading"
         initial={{ opacity: 0, y: 30 }}
